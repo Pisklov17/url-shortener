@@ -29,7 +29,7 @@ describe('UrlController', () => {
 
     describe('set', () => {
         it('should create a shortened URL', async () => {
-            const link = 'https://example.com';
+            const link = 'https://test.com';
             const shortenedUrl = 'http://localhost:3000/url/123';
 
             jest.spyOn(urlService, 'createShortenUrl').mockResolvedValue(shortenedUrl);
@@ -42,7 +42,7 @@ describe('UrlController', () => {
     describe('redirectToOriginalUrl', () => {
         it('should redirect to the original URL', async () => {
             const link = '123';
-            const originalUrl = 'https://example.com';
+            const originalUrl = 'https://test.com';
 
             jest.spyOn(urlService, 'resolveUrl').mockResolvedValue(originalUrl);
 
@@ -51,7 +51,7 @@ describe('UrlController', () => {
         });
 
         it('should throw NotFoundException if the URL is not found', async () => {
-            const link = 'nonexistentlink';
+            const link = 'nonExistLink';
 
             jest.spyOn(urlService, 'resolveUrl').mockResolvedValue(null);
 
